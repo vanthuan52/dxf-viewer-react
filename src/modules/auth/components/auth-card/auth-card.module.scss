@@ -1,0 +1,16 @@
+@use "../../../../styles/variables" as vars;
+
+.card {
+  background-color: vars.$secondary-bg-color;
+  padding: 40px 30px;
+  border-radius: vars.$border-radius;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 700px;
+  text-align: center;
+  box-sizing: border-box;
+
+  @media (max-width: 576px) {
+    padding: 30px 20px;
+  }
+}

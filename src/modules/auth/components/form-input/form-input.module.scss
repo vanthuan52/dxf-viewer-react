@@ -1,0 +1,60 @@
+@use "../../../../styles/variables" as vars;
+
+.formGroup {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin-bottom: 18px;
+}
+
+.label {
+  font-size: vars.$font-size-sm;
+  margin-bottom: 6px;
+  color: vars.$text-color;
+  font-weight: vars.$font-medium;
+  text-align: left;
+}
+
+.input {
+  display: block;
+  width: 100%;
+  padding: 10px 14px;
+  font-size: vars.$font-size-md;
+  line-height: 1.5;
+  color: vars.$text-color;
+  background-color: vars.$secondary-bg-color;
+  background-clip: padding-box;
+  border: 1px solid vars.$border-color;
+  appearance: none;
+  border-radius: vars.$border-radius;
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+
+  &::placeholder {
+    color: lighten(vars.$text-color, 40%);
+    opacity: 1;
+  }
+
+  &:focus {
+    color: vars.$text-color;
+    background-color: vars.$secondary-bg-color;
+    border-color: lighten(vars.$primary-color, 25%);
+    outline: 0;
+    box-shadow: 0 0 0 3px rgba(vars.$primary-color, 0.25);
+  }
+
+  &.inputError {
+    border-color: vars.$error-color !important;
+    &:focus {
+      box-shadow: 0 0 0 3px rgba(vars.$error-color, 0.25);
+    }
+  }
+}
+
+.errorMessage {
+  display: block;
+  width: 100%;
+  margin-top: 6px;
+  font-size: vars.$font-size-sm;
+  color: vars.$error-color;
+  text-align: left;
+}

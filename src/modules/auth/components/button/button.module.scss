@@ -1,0 +1,77 @@
+@use "../../../../styles/variables" as vars;
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 11px 20px;
+  border-radius: vars.$border-radius;
+  font-size: vars.$font-size-md;
+  font-weight: vars.$font-medium;
+  cursor: pointer;
+  border: none;
+  transition: background-color 0.2s ease-in-out, opacity 0.2s ease-in-out,
+    box-shadow 0.2s ease-in-out;
+  width: 100%;
+  line-height: 1.5;
+  text-align: center;
+  vertical-align: middle;
+  user-select: none;
+
+  &:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(vars.$primary-color, 0.3);
+  }
+
+  &:disabled {
+    cursor: not-allowed;
+    opacity: 0.65;
+  }
+
+  &.primary {
+    background-color: vars.$error-color;
+    color: white;
+    border: 1px solid vars.$error-color;
+
+    &:not(:disabled):hover {
+      background-color: vars.$dark-error-color;
+      border-color: vars.$dark-error-color;
+    }
+    &:focus {
+      box-shadow: 0 0 0 3px rgba(vars.$error-color, 0.4);
+    }
+    &:disabled {
+      background-color: lighten(vars.$error-color, 15%);
+      border-color: lighten(vars.$error-color, 15%);
+    }
+  }
+
+  &.secondary {
+    background-color: vars.$secondary-color;
+    color: white;
+    border: 1px solid vars.$secondary-color;
+    &:not(:disabled):hover {
+      background-color: vars.$dark-secondary-color;
+      border-color: vars.$dark-secondary-color;
+    }
+    &:focus {
+      box-shadow: 0 0 0 3px rgba(vars.$secondary-color, 0.4);
+    }
+  }
+}
+
+.spinner {
+  display: inline-block;
+  border: 3px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  border-top-color: #fff;
+  width: 18px;
+  height: 18px;
+  animation: spin 1s ease-in-out infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}

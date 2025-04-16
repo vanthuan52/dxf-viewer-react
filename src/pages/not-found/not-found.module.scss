@@ -1,0 +1,128 @@
+@use "../../styles/variables" as vars;
+
+.notFoundContainer {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative;
+  font-family: vars.$font-primary;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.notFoundContent {
+  text-align: center;
+  color: vars.$secondary-bg-color;
+  background-color: rgba(0, 0, 0, 0.6);
+  padding: 48px;
+  border-radius: 12px;
+  max-width: 90%;
+  width: 500px;
+  backdrop-filter: blur(5px);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+
+  h1 {
+    font-size: 96px;
+    margin: 0;
+    color: #6c63ff;
+    font-weight: 800;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  }
+
+  h2 {
+    font-size: 35px;
+    margin-top: 8px;
+    margin-bottom: 16px;
+    color: vars.$secondary-bg-color;
+  }
+
+  p {
+    margin-bottom: 40px;
+    font-size: 18px;
+    line-height: 1.6;
+    opacity: 0.9;
+    color: vars.$secondary-bg-color;
+  }
+}
+
+.homeButton {
+  background-color: #6c63ff;
+  color: vars.$secondary-bg-color;
+  padding: 12px 28px;
+  border-radius: 30px;
+  font-size: 18px;
+  font-weight: vars.$font-semibold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  letter-spacing: 0.5px;
+  border: none;
+
+  &:hover {
+    background-color: #5a52d5;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(108, 99, 255, 0.4);
+  }
+
+  &:active {
+    transform: translateY(1px);
+    box-shadow: 0 2px 5px rgba(108, 99, 255, 0.4);
+  }
+
+  &:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(108, 99, 255, 0.3), 0 4px 10px rgba(0, 0, 0, 0.2);
+  }
+}
+
+@media (max-width: 768px) {
+  .notFoundContent {
+    padding: 48px 32px;
+
+    h1 {
+      font-size: 80px;
+    }
+
+    h2 {
+      font-size: 29px;
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .notFoundContent {
+    padding: 40px 24px;
+
+    h1 {
+      font-size: 64px;
+    }
+
+    h2 {
+      font-size: 24px;
+    }
+
+    p {
+      font-size: 16px;
+    }
+  }
+
+  .homeButton {
+    padding: 10px 24px;
+    font-size: 16px;
+  }
+}

@@ -3,12 +3,14 @@ import { TypedUseSelectorHook, useDispatch, useSelector } from "react-redux";
 import createSagaMiddleware from "redux-saga";
 import { canvasReducer } from "@/modules/konva-canvas/store";
 import rootSaga from "./root-saga";
+import { authReducer } from "@/modules/auth/store";
 
 const sagaMiddleware = createSagaMiddleware();
 
 export const store = configureStore({
   reducer: {
     canvas: canvasReducer,
+    auth: authReducer,
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({ serializableCheck: false }).concat(sagaMiddleware),
