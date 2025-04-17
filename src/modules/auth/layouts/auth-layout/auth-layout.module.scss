@@ -1,0 +1,11 @@
+@use "../../../../styles/variables" as vars;
+
+.layout {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: vars.$primary-bg-color;
+  padding: 20px;
+  box-sizing: border-box;
+}
