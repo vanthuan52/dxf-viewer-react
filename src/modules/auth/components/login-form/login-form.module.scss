@@ -1,0 +1,67 @@
+@use "../../../../styles/variables" as vars;
+
+.form {
+  display: flex;
+  flex-direction: column;
+}
+
+.title {
+  font-size: 29px;
+  font-weight: vars.$font-semibold;
+  color: vars.$text-color;
+  text-align: center;
+  margin: 0 0 25px 0;
+}
+
+.apiError {
+  color: vars.$error-color;
+  background-color: rgba(vars.$error-color, 0.08);
+  border: 1px solid rgba(vars.$error-color, 0.2);
+  padding: 10px 15px;
+  border-radius: vars.$border-radius;
+  margin-bottom: 15px;
+  text-align: center;
+  font-size: vars.$font-size-sm;
+  word-break: break-word;
+}
+
+.passwordInputGroup {
+  margin-bottom: 8px;
+}
+
+.forgotPassword {
+  display: block;
+  text-align: right;
+  font-size: vars.$font-size-sm;
+  color: vars.$secondary-color;
+  font-weight: vars.$font-medium;
+  margin-bottom: 20px;
+
+  &:hover {
+    color: vars.$primary-color;
+    text-decoration: underline;
+  }
+}
+
+.switchAuth {
+  margin-top: 25px;
+  font-size: vars.$font-size-md;
+  color: vars.$text-color;
+  text-align: center;
+}
+
+.switchAuthLink {
+  color: vars.$primary-color;
+  font-weight: vars.$font-semibold;
+  &:hover {
+    color: vars.$dark-primary-color;
+    text-decoration: underline;
+  }
+}
+
+@media (max-width: 576px) {
+  .title {
+    font-size: 26px;
+    margin-bottom: 20px;
+  }
+}
