@@ -1,0 +1,70 @@
+.viewer {
+  &-container {
+    padding: 20px;
+    font-family: sans-serif;
+    display: flex;
+    flex-direction: column;
+    height: calc(100vh - 40px);
+    box-sizing: border-box;
+  }
+
+  &-title {
+    font-size: 25px;
+    color: #333;
+  }
+  &-subtitle {
+    color: #333;
+  }
+
+  &-input {
+    margin-bottom: 20px;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    &:disabled {
+      cursor: not-allowed;
+      opacity: 0.6;
+    }
+  }
+
+  &-message-error {
+    color: red;
+    margin-bottom: 10px;
+    font-weight: bold;
+  }
+
+  &-message-success {
+    color: rgb(13, 112, 13);
+    margin-bottom: 10px;
+    font-weight: bold;
+  }
+
+  &-message-info {
+    color: rgb(7, 85, 148);
+    margin-bottom: 10px;
+    font-weight: bold;
+  }
+
+  p {
+    margin-bottom: 10px;
+  }
+
+  &-canvas-container {
+    flex-grow: 1;
+    border: 1px solid #ddd;
+    background-color: #f8f8f8;
+    overflow: hidden;
+    position: relative;
+    min-height: 400px;
+
+    p {
+      text-align: center;
+      margin: 10px 0;
+      color: #666;
+    }
+
+    canvas {
+      display: block;
+    }
+  }
+}

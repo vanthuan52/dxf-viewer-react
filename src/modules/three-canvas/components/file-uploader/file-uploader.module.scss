@@ -1,0 +1,23 @@
+.fileUploaderContainer {
+  display: flex;
+  align-items: center;
+  color: #fff;
+  padding: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  border: 1px solid #ccc;
+  margin-top: 10px;
+
+  &:hover {
+    background-color: #ccc;
+    color: #000;
+  }
+  .fileInput {
+    display: none;
+  }
+
+  .labelText {
+    font-size: 16px;
+  }
+}

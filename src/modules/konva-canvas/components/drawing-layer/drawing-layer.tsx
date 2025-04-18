@@ -7,9 +7,15 @@ import {
   Ellipse as KonvaEllipse,
   Text as KonvaText,
   Arc as KonvaArc,
+  Group as KonvaGroup,
 } from "react-konva";
 import { KonvaEventObject } from "konva/lib/Node";
-import { ShapeProps } from "../../types/shapes";
+import {
+  GroupProps,
+  LineShape,
+  ShapeProps,
+  TextShape,
+} from "../../types/shapes";
 import { DrawingAction } from "../../types";
 
 type DrawingLayerProps = {
@@ -27,8 +33,8 @@ const DrawingLayer = React.memo(
 
           const commonProps = {
             ...shape,
-            x: shape.x,
-            y: shape.y,
+            x: shape.x || 0,
+            y: shape.y || 0,
             draggable: shape.draggable,
             ref: (node: any) => {
               if (node) {
@@ -40,11 +46,33 @@ const DrawingLayer = React.memo(
 
           switch (shape.type) {
             case DrawingAction.Rectangle:
-              return <KonvaRect key={shape.id} {...commonProps} />;
+              return (
+                <KonvaRect
+                  key={shape.id}
+                  {...commonProps}
+                  width={shape.width}
+                  height={shape.height}
+                  cornerRadius={shape.cornerRadius}
+                />
+              );
             case DrawingAction.Diamond:
-              return <KonvaRect key={shape.id} {...commonProps} />;
+              return (
+                <KonvaRect
+                  key={shape.id}
+                  {...commonProps}
+                  sides={4}
+                  radius={(shape.width ?? 50) / 2}
+                  rotation={45}
+                />
+              );
             case DrawingAction.Circle:
-              return <KonvaCircle key={shape.id} {...commonProps} />;
+              return (
+                <KonvaCircle
+                  key={shape.id}
+                  {...commonProps}
+                  radius={shape.radius}
+                />
+              );
             case DrawingAction.Ellipse:
               return (
                 <KonvaEllipse
@@ -71,8 +99,9 @@ const DrawingLayer = React.memo(
                   key={shape.id}
                   {...commonProps}
                   points={shape.points}
-                  tension={0.5}
                   lineCap="round"
+                  tension={shape.tension}
+                  closed={shape.closed}
                 />
               );
 
@@ -82,8 +111,8 @@ const DrawingLayer = React.memo(
                   key={shape.id}
                   {...commonProps}
                   points={shape.points}
-                  pointerLength={10}
-                  pointerWidth={10}
+                  pointerLength={shape.pointerLength}
+                  pointerWidth={shape.pointerWidth}
                 />
               );
 
@@ -107,6 +136,8 @@ const DrawingLayer = React.memo(
                   {...commonProps}
                   points={shape.points}
                   dash={[4, 4]}
+                  closed
+                  tension={shape.tension}
                 />
               );
 
@@ -127,6 +158,16 @@ const DrawingLayer = React.memo(
                 />
               );
 
+            case DrawingAction.Triangle:
+              return (
+                <KonvaLine
+                  key={shape.id}
+                  {...commonProps}
+                  points={shape.points}
+                  closed
+                />
+              );
+
             case DrawingAction.Arc:
               return (
                 <KonvaArc
@@ -136,6 +177,48 @@ const DrawingLayer = React.memo(
                   outerRadius={shape.outerRadius || 50}
                   angle={shape.angle || 180}
                 />
+              );
+
+            case DrawingAction.Group:
+              const groupProps = commonProps as GroupProps;
+              return (
+                <KonvaGroup key={groupProps.id} {...groupProps}>
+                  {groupProps.children.map((childShape) => {
+                    if (!childShape) return null;
+                    const childCommonProps = {
+                      ...childShape,
+                      x: childShape.x || 0,
+                      y: childShape.y || 0,
+                      draggable: false,
+                    };
+                    switch (childShape.type) {
+                      case DrawingAction.Line:
+                        return (
+                          <KonvaLine
+                            key={childShape.id}
+                            {...(childCommonProps as LineShape)}
+                            points={childShape.points}
+                            strokeWidth={(childShape as LineShape).strokeWidth}
+                            stroke={(childShape as LineShape).stroke}
+                            dash={(childShape as LineShape).dash}
+                          />
+                        );
+                      case DrawingAction.Text:
+                        return (
+                          <KonvaText
+                            key={childShape.id}
+                            {...(childCommonProps as LineShape)}
+                            text={childShape.text}
+                            fontSize={(childShape as TextShape).fontSize}
+                            fill={(childShape as TextShape).fill}
+                          />
+                        );
+                      // Thêm các case khác cho các loại shape có thể nằm trong Group
+                      default:
+                        return null;
+                    }
+                  })}
+                </KonvaGroup>
               );
 
             default:

@@ -1,0 +1,14 @@
+.viewer-status {
+  background-color: red;
+  position: fixed;
+  transform: translateX(-50%);
+  background: #1e1e1e;
+  color: #fff;
+  bottom: 20px;
+  left: 50%;
+  width: auto;
+  height: auto;
+  padding: 10px;
+  border-radius: 5px;
+  z-index: 10;
+}

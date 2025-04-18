@@ -1,0 +1,25 @@
+.property-panel {
+  background-color: #1e1e1e;
+  color: #fff;
+  padding: 20px 10px;
+  border-radius: 12px;
+  width: 320px;
+  position: fixed;
+  top: 100px;
+  right: 20px;
+
+  &-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #fff;
+    &__button {
+      cursor: pointer;
+    }
+  }
+
+  &-title {
+    text-transform: capitalize;
+  }
+}

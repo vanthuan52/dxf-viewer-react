@@ -41,8 +41,8 @@
       box-shadow: 0 0 0 3px rgba(vars.$error-color, 0.4);
     }
     &:disabled {
-      background-color: lighten(vars.$error-color, 15%);
-      border-color: lighten(vars.$error-color, 15%);
+      background-color: #ccc;
+      border-color: #ccc;
     }
   }
 

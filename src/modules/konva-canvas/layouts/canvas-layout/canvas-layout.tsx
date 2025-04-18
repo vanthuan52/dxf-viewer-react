@@ -1,6 +1,5 @@
 import React from "react";
-import MenuBar from "@/modules/konva-canvas/components/menu-bar/menu-bar";
-import MenuTool from "../../components/menu-tool/menu-tool";
+import styles from "./canvas-layout.module.scss";
 
 interface MainLayoutProps {
   children: React.ReactNode;
@@ -8,10 +7,8 @@ interface MainLayoutProps {
 
 const CanvasLayout: React.FC<MainLayoutProps> = ({ children }) => {
   return (
-    <div className="min-h-screen flex flex-col overflow-hidden">
-      <MenuBar />
-      <div className="flex-1">{children}</div>
-      <MenuTool />
+    <div className={styles["canvas-layout"]}>
+      <div className="">{children}</div>
     </div>
   );
 };

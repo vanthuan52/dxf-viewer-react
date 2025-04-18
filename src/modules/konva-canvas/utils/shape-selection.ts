@@ -2,7 +2,6 @@ import { DrawingAction, IRect } from "../types";
 import { ShapeProps } from "../types/shapes";
 
 export const getBoundingBox = (shape: ShapeProps): IRect => {
-  console.log("shape: ", shape);
   switch (shape.type) {
     case DrawingAction.Rectangle:
     case DrawingAction.Diamond:
@@ -37,8 +36,8 @@ export const getBoundingBox = (shape: ShapeProps): IRect => {
     case DrawingAction.Star:
     case DrawingAction.Triangle: {
       const points = shape.points;
-      const xs = points.filter((_, i) => i % 2 === 0);
-      const ys = points.filter((_, i) => i % 2 === 1);
+      const xs = points.filter((_: any, i: any) => i % 2 === 0);
+      const ys = points.filter((_: any, i: any) => i % 2 === 1);
 
       const minX = Math.min(...xs);
       const maxX = Math.max(...xs);
@@ -60,6 +59,15 @@ export const getBoundingBox = (shape: ShapeProps): IRect => {
         y: y - outerRadius,
         width: outerRadius * 2,
         height: outerRadius * 2,
+      };
+    }
+
+    default: {
+      return {
+        x: shape.x ?? 0,
+        y: shape.y ?? 0,
+        width: shape.width ?? 0,
+        height: shape.height ?? 0,
       };
     }
   }

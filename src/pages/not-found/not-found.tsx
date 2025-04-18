@@ -1,13 +1,9 @@
 import React from "react";
 import styles from "./not-found.module.scss";
-import notFoundImage from "../../assets/page-not-found.png";
 import { Link } from "react-router-dom";
 const NotFound: React.FC = () => {
   return (
-    <div
-      className={styles.notFoundContainer}
-      style={{ backgroundImage: `url(${notFoundImage})` }}
-    >
+    <div className={styles.notFoundContainer}>
       <div className={styles.overlay}>
         <div className={styles.notFoundContent}>
           <h1>404</h1>

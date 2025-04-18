@@ -36,6 +36,13 @@ export enum DrawingAction {
   Diamond = "diamond",
   Star = "star",
   Triangle = "triangle",
+  CircleArc = "circleArc",
+  Polyline = "polyline",
+  LWPolyline = "lwpolyline",
+  Hatch = "hatch",
+  Image = "image",
+  Group = "group",
+
   // Drawing action
   Select = "select",
   ZoomOut = "zoomOut",
