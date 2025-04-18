@@ -1,0 +1,14 @@
+.hamburger {
+  background-color: #1e1e1e;
+  border-radius: 5px;
+  cursor: pointer;
+  z-index: 10;
+  padding: 10px;
+
+  &-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+  }
+}

@@ -1,0 +1,16 @@
+@use "@/styles/variables.scss" as vars;
+
+.panel {
+  &-header {
+    position: fixed;
+    transform: translateX(-50%);
+    background: #1e1e1e;
+    color: #fff;
+    top: 20px;
+    left: 50%;
+    border-radius: vars.$border-radius;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    padding: 5px 10px;
+    z-index: 10;
+  }
+}

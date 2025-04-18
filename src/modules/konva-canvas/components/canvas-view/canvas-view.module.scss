@@ -1,0 +1,52 @@
+@use "@/styles/variables.scss" as vars;
+
+.sidemenu-heading {
+  &__header {
+    font-size: 20px;
+    font-weight: bold;
+  }
+}
+
+.sidemenu-content {
+  display: flex;
+  gap: 20px;
+  flex-direction: column;
+}
+
+.sidemenu-items {
+  &__heading {
+    margin-bottom: 10px;
+  }
+
+  &__pages {
+    &-item {
+      background-color: transparent;
+      border: 1px solid #000;
+      padding: 10px;
+      width: 100%;
+      border-radius: 5px;
+      color: #000;
+      cursor: pointer;
+      transition: 0.3s ease-in-out;
+    }
+  }
+}
+.sidemenu {
+  &-item {
+    padding: 5px 0;
+    &__header {
+      font-size: vars.$font-size-lg;
+      font-weight: bold;
+    }
+
+    &__button {
+      background-color: vars.$success-color;
+      padding: 10px;
+      width: 100%;
+      border-radius: 5px;
+      color: #fff;
+      cursor: pointer;
+      transition: 0.3s ease-in-out;
+    }
+  }
+}

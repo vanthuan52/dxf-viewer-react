@@ -2,11 +2,16 @@ import { useState, useCallback } from "react";
 import { KonvaEventObject } from "konva/lib/Node";
 import { Coord } from "../types";
 
-interface UsePanningProps {}
+interface UsePanningProps {
+  initialScale?: number;
+}
 
-const usePanning = ({}: UsePanningProps) => {
+const usePanning = ({ initialScale = 1 }: UsePanningProps) => {
   const [stagePos, setStagePos] = useState<Coord>({ x: 0, y: 0 });
-  const [stageScale, setStageScale] = useState({ x: 1, y: 1 });
+  const [stageScale, setStageScale] = useState({
+    x: initialScale,
+    y: initialScale,
+  });
   const [lastCenter, setLastCenter] = useState<Coord | null>(null);
   const [lastDist, setLastDist] = useState(0);
   const [dragStopped, setDragStopped] = useState(false);

@@ -3,4 +3,6 @@ export const ROUTER_PATH = {
   view: "/view",
   signin: "/sign-in",
   signup: "/sign-up",
+  dxfViewer: "/dxf-viewer",
+  konvaDrawing: "/konva-drawing",
 };

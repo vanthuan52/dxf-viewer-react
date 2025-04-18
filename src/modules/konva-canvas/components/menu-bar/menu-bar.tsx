@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { MENU_BAR_HEIGHT } from "../../constants";
 
 const MenuBar: React.FC = () => {
@@ -15,6 +15,7 @@ const MenuBar: React.FC = () => {
         <button className="hover:text-blue-600">Settings</button>
         <button className="hover:text-blue-600">Help</button>
       </div>
+      <div className=""></div>
     </div>
   );
 };

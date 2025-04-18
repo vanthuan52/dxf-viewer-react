@@ -1,15 +1,12 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { DrawingAction } from "../types";
-import { ShapeProps } from "../types/shapes";
 
 interface CanvasState {
   drawingAction: DrawingAction;
-  shapes: ShapeProps[];
 }
 
 const initialState: CanvasState = {
   drawingAction: DrawingAction.Select,
-  shapes: [],
 };
 
 const canvasSlice = createSlice({
@@ -21,15 +18,6 @@ const canvasSlice = createSlice({
     },
     resetDrawingAction: (state) => {
       state.drawingAction = DrawingAction.Select;
-    },
-    addShape: (state, action: PayloadAction<ShapeProps>) => {
-      state.shapes.push(action.payload);
-    },
-    setShapes: (state, action: PayloadAction<ShapeProps[]>) => {
-      state.shapes = action.payload;
-    },
-    clearShapes: (state) => {
-      state.shapes = [];
     },
   },
 });

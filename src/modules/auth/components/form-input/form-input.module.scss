@@ -30,14 +30,14 @@
   transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 
   &::placeholder {
-    color: lighten(vars.$text-color, 40%);
+    color: #ccc;
     opacity: 1;
   }
 
   &:focus {
     color: vars.$text-color;
     background-color: vars.$secondary-bg-color;
-    border-color: lighten(vars.$primary-color, 25%);
+    border-color: #ccc;
     outline: 0;
     box-shadow: 0 0 0 3px rgba(vars.$primary-color, 0.25);
   }

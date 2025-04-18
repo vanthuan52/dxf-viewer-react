@@ -1,0 +1,71 @@
+@use "@/styles/variables" as vars;
+
+.panel-menu {
+  position: fixed;
+  background: #1e1e1e;
+  color: #fff;
+  top: 70px;
+  left: 30px;
+  border-radius: vars.$border-radius;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+  z-index: 10;
+  padding: 15px;
+  width: 300px;
+  height: calc(100vh - 100px);
+
+  &-button {
+    position: fixed;
+    background-color: #1e1e1e;
+    color: #fff;
+    top: 20px;
+    left: 30px;
+    border-radius: vars.$border-radius;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    z-index: 10;
+    border: none;
+    cursor: pointer;
+    padding: 5px;
+
+    svg {
+      color: #fff;
+    }
+  }
+
+  &-heading {
+    padding-bottom: 5px;
+    font-size: 16px;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #fff;
+  }
+
+  &-content {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+  }
+
+  &-items {
+    &__heading {
+      margin-bottom: 15px;
+    }
+    a {
+      transition: 0.3s ease-in-out;
+      padding: 5px;
+      border-radius: vars.$border-radius;
+      border: 1px solid #ccc;
+      width: 100%;
+      display: block;
+      text-align: center;
+      cursor: pointer;
+    }
+
+    a:hover {
+      color: #000;
+      background: #ccc;
+    }
+  }
+}
+
+.hidden {
+  display: none; // hoặc dùng transform: translateX(-100%);
+}

@@ -1,0 +1,31 @@
+.layers {
+  &-container {
+  }
+
+  &-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  &-item {
+    width: 100%;
+    display: inline-flex;
+    gap: 15px;
+    align-items: center;
+    word-break: break-word;
+
+    input[type="checkbox"] {
+      width: 15px;
+      height: 15px;
+      flex-shrink: 0;
+    }
+  }
+
+  &-color-indicator {
+    width: 20px;
+    height: 20px;
+    border: 1px solid #ccc;
+    flex-shrink: 0;
+  }
+}
