@@ -1,7 +1,6 @@
 import React from "react";
-import { RxHamburgerMenu } from "react-icons/rx";
-import styles from "./hamburger-menu.module.scss";
 import { Layers } from "lucide-react";
+import styles from "./hamburger-menu.module.scss";
 
 interface HamburgerMenuProps {
   isOpen: boolean;
@@ -13,7 +12,7 @@ const HamburgerMenu: React.FC<HamburgerMenuProps> = ({ isOpen, onClick }) => {
     <div
       className={styles["hamburger"]}
       onClick={onClick}
-      aria-label={isOpen ? "Đóng menu" : "Mở menu"}
+      aria-label={isOpen ? "Close menu" : "Open menu"}
       aria-expanded={isOpen}
     >
       <div className={styles["hamburger-icon"]}>

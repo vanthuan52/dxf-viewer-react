@@ -27,7 +27,7 @@ export const useDxfViewer = () => {
           sceneOptions: { wireframeMesh: true },
         });
       } catch (err) {
-        setError("Không thể khởi tạo trình xem DXF");
+        setError("Can't initialize DXF Board");
       }
     }
 
@@ -49,12 +49,12 @@ export const useDxfViewer = () => {
     viewerRef.current?.Clear();
 
     if (!file.name.toLowerCase().endsWith(".dxf")) {
-      setError("Vui lòng chọn một file có định dạng .dxf");
+      setError("Please choose a dxf file");
       return;
     }
 
     if (!viewerRef.current) {
-      setError("Trình xem DXF chưa được khởi tạo.");
+      setError("Can't initialize DXF Board");
       return;
     }
 
@@ -84,7 +84,7 @@ export const useDxfViewer = () => {
         setLayerVisibility(visibilityMap);
       } catch (loadError: any) {
         setError(
-          `Lỗi khi đọc file DXF: ${loadError.message || String(loadError)}`
+          `Error on reading DXF file: ${loadError.message || String(loadError)}`
         );
       } finally {
         setIsLoading(false);
@@ -93,7 +93,7 @@ export const useDxfViewer = () => {
     };
 
     reader.onerror = () => {
-      setError("Đã xảy ra lỗi khi đọc file.");
+      setError("Error on reading DXF file.");
       setIsLoading(false);
     };
 

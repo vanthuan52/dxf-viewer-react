@@ -1,7 +1,7 @@
 import React, { useState } from "react";
+import { Menu } from "lucide-react";
 import styles from "./panel-menu.module.scss";
 import FileUploader from "../file-uploader/file-uploader";
-import { Menu } from "lucide-react";
 
 type PanelMenuProps = {
   onFileSelected: (file: File | null) => Promise<void>;

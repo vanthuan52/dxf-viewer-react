@@ -12,9 +12,9 @@ const ViewerStatus: React.FC<Props> = ({ isLoading, fileName, error }) => {
     <div className={styles["viewer-status"]}>
       <div className={styles["viewer-status-wrapper"]}>
         {!isLoading && !fileName && <p>Hello World</p>}
-        {isLoading && <p>Đang tải file: {fileName || ""}...</p>}
+        {isLoading && <p>Loading: {fileName || ""}...</p>}
         {error && <p style={{ color: "red" }}>{error}</p>}
-        {!isLoading && fileName && <p>Đang hiển thị: {fileName}</p>}
+        {!isLoading && fileName && <p>File: {fileName}</p>}
       </div>
     </div>
   );

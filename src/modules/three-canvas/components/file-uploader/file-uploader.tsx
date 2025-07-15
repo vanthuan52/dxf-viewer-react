@@ -48,7 +48,7 @@ const FileUploader: React.FC<FileUploaderProps> = ({
         accept=".dxf"
         disabled={isFileLoading}
       />
-      <span className={styles.labelText}>Select file or drag here</span>
+      <span className={styles.labelText}>Select a file</span>
     </div>
   );
 };

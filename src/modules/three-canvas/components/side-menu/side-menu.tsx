@@ -15,7 +15,7 @@ const SideMenu: React.FC<SideMenuProps> = ({ isOpen, onClose, children }) => {
         <button
           className={styles["side-menu-close"]}
           onClick={onClose}
-          aria-label="Đóng menu"
+          aria-label="Close menu"
         >
           <IoMdClose size={28} />
         </button>
