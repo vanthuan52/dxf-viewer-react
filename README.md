@@ -41,7 +41,7 @@ This project serves as a solid foundation for you to explore and develop more co
 1.  **Clone** this repository:
 
     ```bash
-    git clone [https://github.com/vanthuan52/dxf-viewer-react.git](https://github.com/vanthuan52/dxf-viewer-react.git)
+    git clone https://github.com/vanthuan52/dxf-viewer-react.git
     cd dxf-viewer-react
     ```
 
